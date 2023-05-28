@@ -1,6 +1,6 @@
 # Exploratory Data Analysis (EDA) for LTAF Database
 
-![Segmentation Icon](Segmentation icon.png)
+![Segmentation icon](Segmentation icon.png)
 
 In this study, we performed Exploratory Data Analysis (EDA) on the LTAF database to gain insights and understand the data better. EDA involves a comprehensive examination of the dataset to discover patterns, detect anomalies, and identify relationships.
 
