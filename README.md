@@ -1,4 +1,5 @@
-### Custom ECG Analysis Module
+## Enhanced ECG Analysis Module: 
+### Streamlined Record Reading and Comprehensive Data Analysis in WFDB Format
 
 Overview
 This repo ECG analysis module provides enhanced functionality for reading and analyzing ECG records in the WFDB format. With this module, users can perform descriptive analysis, visualize ECG signals, and extract key features from the data.
