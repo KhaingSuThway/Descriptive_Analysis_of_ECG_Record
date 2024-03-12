@@ -15,6 +15,11 @@ The Record class represents an ECG record and encapsulates its properties and fu
 
 The RecordReader class provides a method read() for reading ECG records from the specified path. It extracts signal data, annotations, sample indices, comments, and sampling frequency, and returns a Record object representing the record.
 
+In the [Notebook](descriptive_analysis.ipynb),
+
+The custom module read_record.py to read and analyze a sample ECG record is utilized. The module provides functionality to extract essential information such as signal data, annotations, sample indices, comments, and sampling frequency from the ECG record,etc. 
+
+To gain a deeper understanding, the presence of irregular beats using a donut graph is plotted. This visualization helps visualize the distribution of beat types and identify irregularities in the ECG signal. Furthermore, some functions available in the module by printing out key details about the ECG record is showcased.
 
 
 
