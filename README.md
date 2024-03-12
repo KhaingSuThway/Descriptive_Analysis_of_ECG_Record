@@ -1,32 +1,17 @@
-# Exploratory Data Analysis (EDA) for LTAF Database
+### Custom ECG Analysis Module
 
-![Segmentation icon](Segmentation icon.png)
+Overview
+This repo ECG analysis module provides enhanced functionality for reading and analyzing ECG records in the WFDB format. With this module, users can perform descriptive analysis, visualize ECG signals, and extract key features from the data.
 
-In this study, we performed Exploratory Data Analysis (EDA) on the LTAF database to gain insights and understand the data better. EDA involves a comprehensive examination of the dataset to discover patterns, detect anomalies, and identify relationships.
+From [read_record.py] module,
+The read_record.py file contains the implementation of the Record and RecordReader classes. These classes facilitate reading ECG records, extracting signal data, annotations, sample indices, comments, and sampling frequency, and providing various analysis functionalities.
 
-## Dataset Overview
+*Record Class*
+The Record class represents an ECG record and encapsulates its properties and functionalities. It includes methods for descriptive analysis, extracting intervals, finding specific symbols, and analyzing rhythm intervals.
 
-- The LTAF database consists of **84 records**.
-- Each record contains three file types: **.hea**, **.atr**, and **.dat**.
-- The [wfdb](https://wfdb.readthedocs.io/) Python library is used to read and process these files.
+*RecordReader Class*
+The RecordReader class provides a method read() for reading ECG records from the specified path. It extracts signal data, annotations, sample indices, comments, and sampling frequency, and returns a Record object representing the record.
 
-## Segmentation Technique
 
-![Segmentation Interval Icon](segmentation_interval_icon.png)
-
-- We applied a segmentation technique with a **30-second interval**.
-- Segmentation involves dividing the signals into consecutive 30-second segments.
-- This approach allows us to analyze the data in smaller intervals, capturing specific patterns and events.
-
-## Analysis and Results
-
-- We examined how the signals are distributed and the changes after segmentation.
-- The findings are presented in the [Results](results.md) section of this repository.
-
-![Data Analysis Icon](data_analysis_icon.png)
-
-By conducting EDA and applying a 30-second segmentation interval, we gained valuable insights into the LTAF database. This approach allows us to explore temporal dynamics and better understand the underlying patterns within the physiological waveform data.
-
-Feel free to explore the repository for detailed analysis and visualizations of the LTAF database.
 
 
