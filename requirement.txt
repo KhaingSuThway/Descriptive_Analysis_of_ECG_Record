@@ -2,4 +2,5 @@ wfdb
 numpy
 pandas
 neurokit2
+seaborn
 
