@@ -1,5 +1,5 @@
 wfdb
 numpy
 pandas
-neurokit
-streamlit
+neurokit2
+
