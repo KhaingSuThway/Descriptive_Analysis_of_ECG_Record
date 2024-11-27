@@ -28,6 +28,18 @@ A comprehensive web application for analyzing ECG signals and detecting cardiac 
   - Handles custom ECG recordings
   - Real-time processing
 
+To run locally, please follow the instructions below:
+
+```bash
+git clone https://github.com/yourusername/ecg-analysis-tool.git
+cd ecg-analysis-tool
+pip install -r requirements.txt
+streamlit run streamlitApp.py   
+```
+To run the app on the streamlit community cloud, please click the link below:
+
+[ECG Analysis & Rhythm Segmentation Tool](https://ecg-analysis-tool-streamlit.streamlit.app/)
+
 
 
 
