@@ -1,26 +1,37 @@
-## Enhanced ECG Analysis Module: 
-### Streamlined Record Reading and Comprehensive Data Analysis in WFDB Format
+# ECG Analysis & Rhythm Segmentation Tool
 
-Overview
-This repo ECG analysis module provides enhanced functionality for reading and analyzing ECG records in the WFDB format. With this module, users can perform descriptive analysis, visualize ECG signals, and extract key features from the data.
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.40.2-red.svg)](https://streamlit.io/)
+[![WFDB](https://img.shields.io/badge/WFDB-4.1.2-green.svg)](https://physionet.org/content/wfdb-python/latest/)
 
-From [read_record.py](read_record.py) module,
+A comprehensive web application for analyzing ECG signals and detecting cardiac rhythm patterns. This tool provides automated rhythm segmentation and analysis capabilities for both standard databases and custom ECG recordings.
 
-The read_record.py file contains the implementation of the Record and RecordReader classes. These classes facilitate reading ECG records, extracting signal data, annotations, sample indices, comments, and sampling frequency, and providing various analysis functionalities.
+### Features
 
-*Record Class*
+- **Database Integration**: Direct access to standard ECG databases
+  - MIT-BIH Arrhythmia Database (48 records)
+  - Long Term AF Database (84 records)
 
-The Record class represents an ECG record and encapsulates its properties and functionalities. It includes methods for descriptive analysis, extracting intervals, finding specific symbols, and analyzing rhythm intervals.
+- **Signal Processing**:
+  - Automated rhythm interval detection
+  - Customizable signal segmentation
+  - Beat annotation analysis
+  - PAC/PVC detection
 
-*RecordReader Class*
+- **Data Export**:
+  - JSON format export for further analysis
+  - Detailed rhythm tables
+  - Segmented signal data
 
-The RecordReader class provides a method read() for reading ECG records from the specified path. It extracts signal data, annotations, sample indices, comments, and sampling frequency, and returns a Record object representing the record.
+- **Custom Upload Support**:
+  - Support for WFDB format files
+  - Handles custom ECG recordings
+  - Real-time processing
 
-In the [Notebook](descriptive_analysis.ipynb),
 
-The custom module read_record.py to read and analyze a sample ECG record is utilized. The module provides functionality to extract essential information such as signal data, annotations, sample indices, comments, and sampling frequency from the ECG record,etc. 
 
-To gain a deeper understanding, the presence of irregular beats using a donut graph is plotted. This visualization helps visualize the distribution of beat types and identify irregularities in the ECG signal. Furthermore, some functions available in the module by printing out key details about the ECG record is showcased.
+
+
 
 
 
