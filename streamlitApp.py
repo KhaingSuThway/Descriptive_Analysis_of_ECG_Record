@@ -1,13 +1,15 @@
 import streamlit as st
 import polars as pl
-import numpy as np
-import wfdb
-import json
 import os
 from pathlib import Path
 from tempfile import mkdtemp
 
-from rhythm_segmentation import find_rhythm_interval, rhythm_summary, create_segments
+from rhythm_segmentation import (
+    find_rhythm_interval,
+    create_segments,
+    rhythm_summary,
+    plot_rhythm_summary
+)
 
 def save_uploadedfiles(record_file, annotation_file, data_file):
     """Save uploaded files to a temporary directory and return the paths"""
@@ -141,6 +143,14 @@ if 'rhythm_table' in locals():
     summary_table = rhythm_summary(rhythm_table)
     st.subheader("Summary of Rhythm Statistics in the Record")
     st.write(summary_table)
+             
+    if st.button("Visualize Rhythm Summary"):                
+        # Plot rhythm summary
+        st.subheader("Visualization of Rhythm Statistics in the Record")  
+        plot_rhythm_summary(summary_table)
+        
+     
+            
 
     # Text input box 
     col1, col2 = st.columns(2)
