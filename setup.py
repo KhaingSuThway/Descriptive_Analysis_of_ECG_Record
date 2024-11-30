@@ -8,7 +8,7 @@ setup(
     name="ecg-analysis-tool",
     version="0.1.0",
     author="Khaing",
-    author_email="khaingsuthway@gmail.com",
+    author_email="",
     description="A web application for ECG signal analysis and rhythm segmentation",
     long_description=long_description,
     long_description_content_type="text/markdown",
