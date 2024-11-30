@@ -75,7 +75,7 @@ streamlit run streamlitApp.py
 
 ### Core Components
 - **Rhythm Segmentation**: Custom algorithms for detecting rhythm boundaries
-- **Beat Analysis**: Precise detection and classification of heart beats
+- **Beat Segmentation**: Based on custom window size, the signal within specific rhythm boundaries are segmented
 - **Statistical Analysis**: Comprehensive metrics for rhythm characterization
 
 ### File Structure
@@ -96,10 +96,8 @@ project_root/
 
 ## Applications
 
-- **Clinical Research**: Analysis of ECG patterns and rhythm variations
-- **Medical Education**: Study of different cardiac rhythm types
-- **Algorithm Development**: Testing and validation of ECG processing methods
-- **Data Collection**: Generation of annotated datasets for machine learning
+- Generation of annotated single lead ECG datasets for AI/ML training
+- Visualization of data distribution within the original dataset
 
 ## Contributing
 
@@ -111,10 +109,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions and support, please [open an issue](https://github.com/yourusername/ecg-analysis-tool/issues)
+For questions and support, please [open an issue](https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record/issues)
 
----
 
-[ECG Analysis & Rhythm Segmentation Tool](https://ecg-analysis-tool-streamlit.streamlit.app/)
 
 
