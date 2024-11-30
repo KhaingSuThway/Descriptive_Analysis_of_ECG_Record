@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ecg_analysis_tool"
+version = "0.1.0"
+description = "ECG Analysis & Rhythm Segmentation Tool"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    {name = "Khaing", email = ""}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+dependencies = [
+    "streamlit>=1.40.2",
+    "wfdb>=4.1.2",
+    "numpy>=1.24.0",
+    "polars>=0.20.0",
+    "matplotlib>=3.7.0",
+    "neurokit2>=0.2.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool"
+Repository = "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool.git"
+"Bug Tracker" = "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/issues"
+Documentation = "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"] 
