@@ -2,12 +2,12 @@ Metadata-Version: 2.1
 Name: ecg-analysis-tool
 Version: 0.1.0
 Summary: A web application for ECG signal analysis and rhythm segmentation
-Home-page: https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Recordl
+Home-page: https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/
 Author: Khaing
 Author-email: 
-Project-URL: Bug Reports, https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record
-Project-URL: Source, https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record
-Project-URL: Documentation, https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record#readme
+Project-URL: Bug Reports, https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/
+Project-URL: Source, https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/
+Project-URL: Documentation, https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool#readme
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Healthcare Industry
 Classifier: Intended Audience :: Science/Research
@@ -65,7 +65,7 @@ A  web application for analyzing ECG (Electrocardiogram) signals and detecting c
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ecg-analysis-tool.git
+git clone https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/.git
 cd ecg-analysis-tool
 ```
 
@@ -109,18 +109,23 @@ streamlit run streamlitApp.py
 ### File Structure
 ```
 project_root/
-├── streamlitApp.py        # Main application interface
-├── rhythm_segmentation.py # Core analysis logic
-├── read_record.py        # Data reading utilities
-└── requirements.txt      # Project dependencies
+├── src/
+│   ├── __init__.py
+│   ├── app/
+│   │   ├── __init__.py
+│   │   └── streamlit_app.py
+│   └── processing/
+│       ├── __init__.py
+│       ├── rhythm_segmentation.py
+│       └── read_record.py
+├── setup.py
+└── requirements.txt
 ```
 
 ## Applications
 
-- **Clinical Research**: Analysis of ECG patterns and rhythm variations
-- **Medical Education**: Study of different cardiac rhythm types
-- **Algorithm Development**: Testing and validation of ECG processing methods
-- **Data Collection**: Generation of annotated datasets for machine learning
+- Generation of annotated single lead ECG datasets for AI/ML training
+- Visualization of data distribution within the original dataset
 
 ## Contributing
 
@@ -132,10 +137,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions and support, please [open an issue](https://github.com/yourusername/ecg-analysis-tool/issues)
+For questions and support, please [open an issue](https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/issues)
 
----
 
-[ECG Analysis & Rhythm Segmentation Tool](https://ecg-analysis-tool-streamlit.streamlit.app/)
 
 
