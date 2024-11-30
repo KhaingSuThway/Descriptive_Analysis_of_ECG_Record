@@ -1,0 +1,2 @@
+[console_scripts]
+ecg-analysis = streamlitApp:main

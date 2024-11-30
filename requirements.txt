@@ -1,0 +1,7 @@
+pandas
+neurokit2
+seaborn
+streamlit == 1.40.2
+numpy == 1.26.3
+polars == 1.14.0
+wfdb == 4.1.2
