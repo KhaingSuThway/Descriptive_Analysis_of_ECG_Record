@@ -81,10 +81,17 @@ streamlit run streamlitApp.py
 ### File Structure
 ```
 project_root/
-├── streamlitApp.py        # Main application interface
-├── rhythm_segmentation.py # Core analysis logic
-├── read_record.py        # Data reading utilities
-└── requirements.txt      # Project dependencies
+├── src/
+│   ├── __init__.py
+│   ├── app/
+│   │   ├── __init__.py
+│   │   └── streamlit_app.py
+│   └── processing/
+│       ├── __init__.py
+│       ├── rhythm_segmentation.py
+│       └── read_record.py
+├── setup.py
+└── requirements.txt
 ```
 
 ## Applications
