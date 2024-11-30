@@ -37,7 +37,7 @@ A  web application for analyzing ECG (Electrocardiogram) signals and detecting c
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ecg-analysis-tool.git
+git clone [https://github.com/yourusername/ecg-analysis-tool.git](https://github.com/KhaingSuThway/ECG_Analysis-_Rhythm_Segmentation_Tool.git)
 cd ecg-analysis-tool
 ```
 
