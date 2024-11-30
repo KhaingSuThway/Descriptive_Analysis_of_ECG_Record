@@ -12,7 +12,7 @@ setup(
     description="A web application for ECG signal analysis and rhythm segmentation",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Recordl",
+    url="https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -39,8 +39,8 @@ setup(
         ],
     },
     project_urls={
-        "Bug Reports": "https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record",
-        "Source": "https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record",
-        "Documentation": "https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record#readme",
+        "Bug Reports": "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool",
+        "Source": "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool",
+        "Documentation": "https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool#readme",
     },
 )
