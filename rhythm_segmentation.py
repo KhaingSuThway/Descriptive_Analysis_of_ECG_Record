@@ -4,7 +4,7 @@ import wfdb
 import numpy as np
 import polars as pl
 import streamlit as st
-
+import matplotlib.pyplot as plt
 def find_rhythm_interval(record_name, database_path=None):
     """
     Find rhythm intervals based on rhythm annotations and their corresponding indices.
@@ -141,6 +141,7 @@ def rhythm_summary(record_rhythm_table):
     max_duration = []
     mean_duration = []
     std_duration = []
+    total_duration = []
     pac_count = []
     pvc_count = []
     
@@ -155,7 +156,7 @@ def rhythm_summary(record_rhythm_table):
         max_duration.append(max(durations))
         mean_duration.append(np.mean(durations))
         std_duration.append(np.std(durations))
-        
+        total_duration.append(sum(durations))
         # Flatten beat annotations and count arrhythmias
         beat_annotations = [item for sublist in rhythm_data['IntervalBeatAnnotations'].to_list() for item in sublist]
         pac_count.append(beat_annotations.count('A'))
@@ -167,6 +168,7 @@ def rhythm_summary(record_rhythm_table):
         pl.Series("max(sec)", max_duration),
         pl.Series("mean(sec)", mean_duration),
         pl.Series("std(sec)", std_duration),
+        pl.Series("total(sec)", total_duration),
         pl.Series("PAC", pac_count),
         pl.Series("PVC", pvc_count)
     ])
@@ -268,3 +270,63 @@ def create_segments(record_rhythm_table, window_size, window_step, progress_call
     
     return segmented_table
 
+
+def plot_rhythm_summary(rhythm_summary):
+    # Create figure
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(10, 20))
+    plt.rcParams['font.sans-serif'] = ['Arial']
+
+    # Get data from Polars DataFrame
+    rhythms = rhythm_summary['rhythm'].to_list()
+    frequencies = rhythm_summary['frequency'].to_list()
+    means = rhythm_summary['mean(sec)'].to_list()
+    stds = rhythm_summary['std(sec)'].to_list()
+    durations = rhythm_summary['total(sec)'].to_list()
+
+    # Plot frequency
+    ax1.bar(rhythms, frequencies)
+    ax1.set_title('Frequency of Rhythms')
+    ax1.set_xlabel('Rhythm Type')
+    ax1.set_ylabel('Frequency')
+    ax1.tick_params(axis='x', rotation=45)
+
+    # Plot mean duration
+    ax2.bar(rhythms, means)
+    ax2.set_title('Mean Duration of Rhythms')
+    ax2.set_xlabel('Rhythm Type')
+    ax2.set_ylabel('Mean Duration (seconds)')
+    ax2.tick_params(axis='x', rotation=45)
+
+    # Plot standard deviation
+    ax3.bar(rhythms, stds)
+    ax3.set_title('Standard Deviation of Rhythm Durations')
+    ax3.set_xlabel('Rhythm Type')
+    ax3.set_ylabel('Standard Deviation (seconds)')
+    ax3.tick_params(axis='x', rotation=45)
+
+    # Plot total duration
+    ax4.bar(rhythms, durations)
+    ax4.set_title('Total Duration of Rhythms')
+    ax4.set_xlabel('Rhythm Type')
+    ax4.set_ylabel('Total Duration (seconds)')
+    ax4.tick_params(axis='x', rotation=45)
+
+    # Adjust layout
+    plt.tight_layout()
+    
+    # Display plot in Streamlit
+    st.pyplot(fig)
+
+    # Optional: Add text summary
+    st.write("### Summary Statistics")
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        max_frequency_rhythm = rhythm_summary.sort('frequency', descending=True).limit(1)['rhythm'].item()
+        frequency = rhythm_summary.filter(pl.col('rhythm') == max_frequency_rhythm)['frequency'].item()
+        st.write(f"Most frequent rhythm: **{max_frequency_rhythm}** ({frequency} occurrences)")
+    
+    with col2:
+        max_duration_rhythm = rhythm_summary.sort('total(sec)', descending=True).limit(1)['rhythm'].item()
+        max_rhythm_duration = rhythm_summary.filter(pl.col('rhythm') == max_duration_rhythm)['total(sec)'].item()
+        st.write(f"Longest duration rhythm: **{max_duration_rhythm}** ({round(max_rhythm_duration, 2)} seconds)")
