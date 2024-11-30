@@ -150,8 +150,6 @@ if 'rhythm_table' in locals():
         plot_rhythm_summary(summary_table)
         
      
-            
-
     # Text input box 
     col1, col2 = st.columns(2)
     with col1:
@@ -194,3 +192,10 @@ st.markdown("""
 If you found any issues or have suggestions, please issue a ticket on the GitHub repository.
 Any feedback is welcome.
 """)
+
+def main():
+    st.title("ECG Analysis & Rhythm Segmentation Tool")
+    # Your existing Streamlit app code here...
+
+if __name__ == "__main__":
+    main() 
