@@ -37,7 +37,7 @@ A  web application for analyzing ECG (Electrocardiogram) signals and detecting c
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/yourusername/ecg-analysis-tool.git](https://github.com/KhaingSuThway/ECG_Analysis-_Rhythm_Segmentation_Tool.git)
+git clone https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool.git
 cd ecg-analysis-tool
 ```
 
@@ -109,7 +109,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions and support, please [open an issue](https://github.com/KhaingSuThway/Descriptive_Analysis_of_ECG_Record/issues)
+For questions and support, please [open an issue](https://github.com/KhaingSuThway/ECG_Analysis_Rhythm_Segmentation_Tool/issues)
 
 
 
