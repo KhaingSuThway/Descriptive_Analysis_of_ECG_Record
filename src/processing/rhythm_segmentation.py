@@ -204,6 +204,9 @@ def create_segments(record_rhythm_table, window_size, window_step, progress_call
         rhythm = record_rhythm_table['rhythm'][row]
         signal_fs = record_rhythm_table['RecordFs'][row]
         signal_duration = record_rhythm_table['IntervalDuration'][row]
+        # Convert durations to samples
+        window_size_samples = int(window_size * signal_fs)
+        window_step_samples = int(window_step * signal_fs)
         
         if signal_duration < window_size:
             if progress_callback:
@@ -214,41 +217,44 @@ def create_segments(record_rhythm_table, window_size, window_step, progress_call
             if progress_callback:
                 progress_callback(f"Processing interval {row} of {rd_name} (duration: {signal_duration}s)")
             
-            #no_of_segments = int((len(signal) - (window_size * signal_fs)) / (window_step * signal_fs)) + 1    
+                     
+            no_of_segments = int((len(signal) - window_size_samples) / window_step_samples) + 1            
             
-            no_of_segments = math.ceil((len(signal) - (window_size * signal_fs)) / (window_step * signal_fs)) + 1
-            
-            intervalNo=[]
-            intervalFs=[]
-            intervalParent=[]
+            intervalNo = []
+            intervalFs = []
+            intervalParent = []
 
             segmentSignal = []
             segmentBeatAnnotations = []
             segmentRhythmAnnotations = []
             segmentAnnotatedIndices = []
-
-            for i in range(no_of_segments):
-                
+            
+            left_index = 0
+            right_index = left_index + window_size_samples
+            while (left_index < (len(signal) - window_size_samples)) and (right_index <= len(signal)):
                 intervalNo.append(row)
                 intervalFs.append(signal_fs)
                 intervalParent.append(rd_name)
-                segmentRhythmAnnotations.append(rhythm)
+                segmentRhythmAnnotations.append(rhythm)                
                 
-                sampfrom = i * window_size * signal_fs
-                sampto = sampfrom + (window_size * signal_fs)
-                
-                interval_signal = signal[sampfrom:sampto]        
+                # Extract segment signal
+                interval_signal = signal[left_index:right_index]        
                 segmentSignal.append(interval_signal)
-                # Find indices where the annotated indices fall within the specified range
-                annotation_samp = np.intersect1d(np.where(sampfrom <= annotated_indices), np.where(sampto >= annotated_indices))
+
+                # Find indices where the annotations fall within the range
+                annotation_samp = np.where((annotated_indices >= left_index) & (annotated_indices < right_index))[0]
                     
                 # Calculate interval samples
-                interval_sample = annotated_indices[annotation_samp] - sampfrom
+                interval_sample = annotated_indices[annotation_samp] - left_index
                 segmentAnnotatedIndices.append(interval_sample)
                 
-                # append beat annotations
+                # Append beat annotations
                 interval_beat_annotations = beat_annotations[annotation_samp]
                 segmentBeatAnnotations.append(interval_beat_annotations)
+                
+                # Update indices
+                left_index += window_step_samples
+                right_index = left_index + window_size_samples
                 
             if progress_callback:
                 progress_callback(f"Created {no_of_segments} segments")
